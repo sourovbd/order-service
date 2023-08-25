@@ -1,6 +1,5 @@
 package com.sv.io.orderservice.model;
 
-import com.sv.io.paymentservice.model.PaymentMode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
