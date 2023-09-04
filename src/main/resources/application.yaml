@@ -15,6 +15,22 @@ spring:
     name: ORDER-SERVICE
   config:
     import: configserver:http://localhost:9296
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-00296466.okta.com/oauth2/default
+      client:
+        registration:
+          internal-client:
+            provider: okta
+            authorization-grant-type: client_credentials
+            scope: internal
+            client-id: 0oab31islqP5FkhYI5d7
+            client-secret: 5mcG6UCw4hEJl_RcWsZ0Au1-YJhdXbfV9VAegya527c3oBNuB4v76FCIHeiZ96as
+        provider:
+          okta:
+            issuer-uri: https://dev-00296466.okta.com/oauth2/default
 
 resilience4j:
   circuitbreaker:
@@ -29,6 +45,8 @@ resilience4j:
         sliding-window-size: 10
         sliding-window-type: COUNT_BASED
 
+#Following configurations belongs to config server github repository.
+
 #eureka:
 #  instance:
 #    prefer-ip-address: true
@@ -37,3 +55,8 @@ resilience4j:
 #    fetch-registry: true
 #    service-url:
 #      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
+
+#okta:
+#  oauth2:
+#    issuer: https://dev-00296466.okta.com/oauth2/default
+#    audience: api://default
