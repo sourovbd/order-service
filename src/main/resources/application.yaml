@@ -13,8 +13,8 @@ spring:
       ddl-auto: update
   application:
     name: ORDER-SERVICE
-  config:
-    import: configserver:http://localhost:9296
+#  config:
+#    import: configserver:http://localhost:9296
   security:
     oauth2:
       resourceserver:
@@ -46,17 +46,15 @@ resilience4j:
         sliding-window-type: COUNT_BASED
 
 #Following configurations belongs to config server github repository.
-
-#eureka:
-#  instance:
-#    prefer-ip-address: true
-#  client:
-#    register-with-eureka: true
-#    fetch-registry: true
-#    service-url:
-#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
-
-#okta:
-#  oauth2:
-#    issuer: https://dev-00296466.okta.com/oauth2/default
-#    audience: api://default
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
+okta:
+  oauth2:
+    issuer: https://dev-00296466.okta.com/oauth2/default
+    audience: api://default
