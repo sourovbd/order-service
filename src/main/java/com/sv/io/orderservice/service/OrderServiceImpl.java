@@ -89,7 +89,8 @@ public class OrderServiceImpl implements OrderService {
 
         log.info("Invoking payment service to fetch the payment details");
 
-        PaymentResponse paymentResponse = restTemplate.getForObject("http://PAYMENT-SERVICE/payment/order/"+order.getId(),
+        PaymentResponse paymentResponse =
+                restTemplate.getForObject("http://PAYMENT-SERVICE/payment/order/"+order.getId(),
                 PaymentResponse.class);
 
         OrderResponse.ProductDetails productDetails = OrderResponse.ProductDetails
