@@ -2,8 +2,8 @@
 server:
   port: 8082
 spring:
-#  config:
-#    import: Optional:configserver:http://localhost:9296
+  config:
+    import: Optional:configserver:http://localhost:9296
   datasource:
     url: jdbc:h2:mem:order
     username: sa
@@ -34,30 +34,3 @@ spring:
 eureka:
   client:
     enabled: false
-
-#resilience4j:
-#  circuitbreaker:
-#    instances:
-#      external:
-#        event-consumer-buffer-size: 10
-#        failure-rate-threshold: 50
-#        minimum-number-of-calls: 5
-#        automatic-transition-from-open-to-half-open-enabled: true
-#        wait-duration-in-open-state: 5s
-#        permitted-number-of-calls-in-half-open-state: 3
-#        sliding-window-size: 10
-#        sliding-window-type: COUNT_BASED
-
-#Following configurations belongs to config server github repository.
-#eureka:
-#  instance:
-#    prefer-ip-address: true
-#  client:
-#    register-with-eureka: true
-#    fetch-registry: true
-#    service-url:
-#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
-#okta:
-#  oauth2:
-#    issuer: https://dev-00296466.okta.com/oauth2/default
-#    audience: api://default
